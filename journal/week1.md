@@ -1,16 +1,24 @@
 # Week 1 — App Containerization
-I didn't struggled this week to follow the instructions videos. Again this week, the hardest part is to find time to do extra homeworks.
+I didn't struggled this week to follow the instructions videos. Again this week, the hardest part is to find time to do extra homeworks. Here are the main things I did this week.
 
 ## 1. Create a DockerFile for the backend
+I followed the steps to create the DockerFile, everything went well.
 [DockerFile backend](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/Dockerfile)
 
 ## 2. Create a DockerFile for the frontent
+Everything went well too for the creation of the DockerFile for the frontend.
 [DockerFile frontend](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/frontend-react-js/Dockerfile)
 
 ## 3. Create a docker-compose file for both containers
+Same as the two previous steps.
 [docker-compose.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/docker-compose.yaml)
 
+## 4. Adding the notifications page and changing the message in the backend
+Had some difficulties here, while I copy/pasted the code from the home page, I accidentally erase a part of the home page. Took me a little bit of time to figure out what was the problem.
+![Notifications](/journal/assets/Backend.png "Notifications")
+
 ## 4. Build and run the containers
+Everything went weel for this part. The fact that the frontend container was not running when I would do the Docker Compose Up was kind of annoying.
 ![Running](/journal/assets/Run.png "Containers running")
 ![Ports](/journal/assets/Ports.png "Ports")
 
