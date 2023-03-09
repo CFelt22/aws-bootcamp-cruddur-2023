@@ -37,10 +37,15 @@ I decided to add the code in this file because it was Andrew's first intention.
 ![Rollbar](/journal/assets/Rollbar1_w2.png "Rollbar")
 ## 11. My journey to the cloud
 Since two years, I changed career and I had the oportunity to learn AWS while working. I'm an ASEA SysAdmin (AWS Secure Environment Accelerator). I had no real prior background in IT. I was in video production and I learned many software by myself.
-![Journey](/journal/assets/Journey_w2.png "Journey")
-This is the job search that I did.
-![Job1](/journal/assets/Job1_w2.png "Job1")
-![Job2](/journal/assets/Job2_w2.png "Job2")
-![Job3](/journal/assets/Job3_w2.png "Job3")
-![Job4](/journal/assets/Job4_w2.png "Job4")
-![Job5](/journal/assets/Job5_w2.png "Job5")
+![Journey](/journal/assets/Journey1.png "Journey")
+This is the job search that I did.  
+Cloud Developer  
+![Job1](/journal/assets/Job1_w2.png "Job1")  
+Cloud Administrator    
+![Job2](/journal/assets/Job2_w2.png "Job2")  
+Developer, Cloud Engineer  
+![Job3](/journal/assets/Job3_w2.png "Job3")  
+Cloud Engineer  
+![Job4](/journal/assets/Job4_w2.png "Job4")  
+Cloud Administrator  
+![Job5](/journal/assets/Job5_w2.png "Job5")  
