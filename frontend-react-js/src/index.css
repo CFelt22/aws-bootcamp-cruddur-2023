@@ -1,8 +1,13 @@
+:root {
+  --purple: rgb(78,22,149,1);
+  --dark: rgb(78,85,105,1);
+}
+
 * { box-sizing: border-box; }
 html,body { 
   height: 100%; 
   width: 100%; 
-  background: rgb(14,3,28);
+  background: var(--purple);
 }
 
 body {
