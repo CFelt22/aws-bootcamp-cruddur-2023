@@ -1,6 +1,7 @@
 :root {
-  --purple: rgb(78,22,149,1);
-  --dark: rgb(78,85,105,1);
+  --purple: rgba(78,22,149,1);
+  --purple_text: rgba(178,70,255,1);
+  --dark: rgba(78,85,105,1);
 }
 
 * { box-sizing: border-box; }
