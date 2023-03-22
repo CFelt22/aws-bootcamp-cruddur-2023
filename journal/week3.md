@@ -106,3 +106,7 @@ Adding the acces token data for the Home Activities and some app logger to help 
 [App.py](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/app.py)
 
 ## UI improvement
+I created variables for the colors and started to integrate them in the code. I will complete the task in another week.
+![index.css](/journal/assets/index1_w3.png "Index.css")
+[Index.css](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/frontend-react-js/src/index.css)
+![Home Page](/journal/assets/Login1_w3.png "Home Page")
