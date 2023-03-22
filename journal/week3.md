@@ -33,6 +33,25 @@ I did the import for Amplify in the App.js file and added the variables.
 
 ## Implement custom pages
 
+### Home feed page
+I added the Amplify import and the code to check the authentication.
+![Home Feed](/journal/assets/home_page1_w3.png "Home Page")
+[homepage.js](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/frontend-react-js/src/pages/HomeFeedPage.js)
+
+### Desktop Sidebar
+I changed the code for the condtional statement of trending and suggested variables.
+![Desktop Sidebar](/journal/assets/desktop_sidebar1_w3.png "Desktop Sidebar")
+[DesktopSidebar.js](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/frontend-react-js/src/components/DesktopSidebar.js)
+
+### Profile Info
+I added the Amplify import and the code to signout.
+![Profile Info](/journal/assets/profile_info1_w3.png "Profile Info")
+[ProfileInfo.js](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/frontend-react-js/src/components/ProfileInfo.js)
+
+### Signin Page
+I added the Amplify import and the code to the action on submit.
+![Signin Page](/journal/assets/signin1_w3.png "Signin Page")
+[SigninPage.js](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/frontend-react-js/src/pages/SigninPage.js)
 
 
 ## JWT Token
