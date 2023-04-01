@@ -38,16 +38,25 @@ This is to see the active sessions in the database.
 This is a bash script to automate the drop, create, shema-load and seed inside the database.
 ![db-setup](/journal/assets/dbsetup1_w4.png "db-setup")
 [db-setup](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/bin/db-setup)
+
 ## Postgresql
 
-### Connection to the prod db
-
+### Connection to the db
+Creation of the db.py file and adding code to connect to the db.
+![db.py](/journal/assets/dbpy1_w4.png "db.py")
+[db.py](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/lib/db.py)
 ### Installing requirements
-
-### Importing data in home_activities from db.py
-
+Adding Cognito and psycopg to the requirements.txt file and installing them.
+![requirements.txt](/journal/assets/requir1_w4.png "requirements.txt")
+[requirements.txt](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/requirements.txt)
+### Importing data in home_activities and the db.py librairy
+Replacing the mock data in the home_activities.py file by sql queries in the database.
+![home_activities](/journal/assets/homeact1_w4.png "home_activities.py")
+[home_activities](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/services/home_activities.py)
 ### Adding the variables in docker-compose
-
+Adding a varibale for the local db in the docker-compose file.
+![docker_compose.yaml](/journal/assets/dockercomp1_w4.png "docker-composel.yaml")
+[docker_compose.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/docker-compose.yaml)
 ## Queries
 
 ### Adding queries in db.py
@@ -59,6 +68,8 @@ This is a bash script to automate the drop, create, shema-load and seed inside t
 ### Bash file
 
 ### Gitpod.yaml
+
+### Creation of the rds database
 
 ### Connection to the prod db
 
