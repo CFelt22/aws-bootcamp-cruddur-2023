@@ -58,21 +58,33 @@ Adding a varibale for the local db in the docker-compose file.
 ![docker_compose.yaml](/journal/assets/dockercomp1_w4.png "docker-composel.yaml")
 [docker_compose.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/docker-compose.yaml)
 ## Queries
-
+Adding code in the librairy and in the home_activities to queries in the database instead of using mock data.
 ### Adding queries in db.py
-
+Adding code to query objects and arrays.
+![db.py](/journal/assets/dbpy2_w4.png "db.py")
+[db.py](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/lib/db.py)
 ### Adding queries in home_activities.py
+Adding queries in this page to display in the application.
+![home_activities.py](/journal/assets/homeact2_w4.png "home_activities.py")
+[home_activities](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/services/home_activities.py)
 
-## Updating SG
-
-### Bash file
-
-### Gitpod.yaml
-
+## RDS database
+This will be the production database, used by the application.
 ### Creation of the rds database
-
+In AWS, we manually created a RDS database.
+![AWS RDS](/journal/assets/rdsdb1_w4.png "AWS RDS")
+### Bash file
+Everytime gitpod open a workspace, it has a different ip address. We are creating a bash script to update the security group of the database in AWS.The bash file get the gitpod ip adress and send update the security group.
+![rds-update-sg-rule](/journal/assets/rdsupdate1_w4.png "rds-update-sg-rule")
+[rds-update-sg-rule](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/bin/rds-update-sg-rule)
+### Gitpod.yaml
+We are using the gitpod.yaml file to add the ip adress of gitpod into a varaible to be used in the previous bash file.
+![gitpod.yaml](/journal/assets/gitpod1_w4.png "gitpod.yaml")
+[gitpod.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/.gitpod.yml)
 ### Connection to the prod db
-
+Adding an if statement to connect to the local db or the prod db.
+![db-connect](/journal/assets/gitpod1_w4.png "db-connect")
+[db-connect](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/bin/db-connect)
 ## Refactoring the librairy
 
 ### db.py
