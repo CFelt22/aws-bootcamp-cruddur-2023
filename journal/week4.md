@@ -40,7 +40,6 @@ This is a bash script to automate the drop, create, shema-load and seed inside t
 [db-setup](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/bin/db-setup)
 
 ## Postgresql
-
 ### Connection to the db
 Creation of the db.py file and adding code to connect to the db.
 ![db.py](/journal/assets/dbpy1_w4.png "db.py")
@@ -57,6 +56,7 @@ Replacing the mock data in the home_activities.py file by sql queries in the dat
 Adding a varibale for the local db in the docker-compose file.
 ![docker_compose.yaml](/journal/assets/dockercomp1_w4.png "docker-composel.yaml")
 [docker_compose.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/docker-compose.yaml)
+
 ## Queries
 Adding code in the librairy and in the home_activities to queries in the database instead of using mock data.
 ### Adding queries in db.py
@@ -85,6 +85,23 @@ We are using the gitpod.yaml file to add the ip adress of gitpod into a varaible
 Adding an if statement to connect to the local db or the prod db.
 ![db-connect](/journal/assets/gitpod1_w4.png "db-connect")
 [db-connect](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/bin/db-connect)
+
+## Post confirmation
+Creation of a lambda function to insert data inside the production database.
+### cruddur-post-confirmation.py
+We stored in the git repo the code for the lambda function.
+![post-confirmation](/journal/assets/postconf1_w4.png "post-confirmation")
+[post-confirmation](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/lambdas/cruddur-post-confirmation.py)
+### Creation of the lambda function
+The lambda function is created by the AWS console.
+![lambda](/journal/assets/lambda1_w4.png "lambda")
+### Permissions
+We need to add permissions for the logs.
+![lambda permissions](/journal/assets/lambda1_w4.png "permissions")
+### VPC
+We need to add the lambda function inside a vpc.
+![lambda vpc](/journal/assets/lambda1_w4.png "vpc")
+
 ## Refactoring the librairy
 
 ### db.py
@@ -93,7 +110,7 @@ Adding an if statement to connect to the local db or the prod db.
 
 ### home_activity.py
 
-### Lambda
+
 
 ## SQL
 
@@ -102,6 +119,7 @@ Adding an if statement to connect to the local db or the prod db.
 ### home.sql
 
 ### object.sql
+
 
 ## Troubleshooting
 
