@@ -139,7 +139,7 @@ I had several problems that I tried to fix when I was trying to post a message. 
 
 ### Attempts
 I understanded that the problem was linked to the uuid that was not passed when a post was made. I saw on discord that the "db" problem was to change it to "localhost". It worked for the db connection errors, but I still wasn't able to post. When injecting mock data, I also had problem with the email that was null. In the seed.sql file, I tried to change data to put my name and username. I also tried to add a fake email. I wasn't working either. I saw on discord that I had to add "user_handle" in the "ActivityForm.js", "HomeFeedPage.js" and in the "app.py" files. It didn't worked either.
-![ActivityForm.js](/journal/assets/activityform1_w4.png "ActivityForm.js")
+![ActivityForm.js](/journal/assets/activifyform1_w4.png "ActivityForm.js")
 ![HomeFeedPage.js](/journal/assets/homepage1_w4.png "HomeFeedPage.js")
 
 ### Solution
