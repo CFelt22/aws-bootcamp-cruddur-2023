@@ -19,6 +19,7 @@ services:
       AWS_COGNITO_USER_POOL_CLIENT_ID: "47urllj93ne76jepnd2oc7tia"
       CONNECTION_URL: "${CONNECTION_URL}"
       PROD_CONNECTION_URL: "${PROD_CONNECTION_URL}"
+      LOCAL_CONNECTION_URL: "${LOCAL_CONNECTION_URL}"
       
     build: ./backend-flask
     ports:
