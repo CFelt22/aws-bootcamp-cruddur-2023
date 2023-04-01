@@ -1,12 +1,10 @@
 import json
 import psycopg2
 import os
-
 def lambda_handler(event, context):
     user = event['request']['userAttributes']
     print('userAttributes')
     print(user)
-
     user_display_name  = user['name']
     user_email         = user['email']
     user_handle        = user['preferred_username']
@@ -14,12 +12,12 @@ def lambda_handler(event, context):
     try:
       print('entered-try')
       sql = f"""
-        INSERT INTO public.users (
+         INSERT INTO public.users (
           display_name, 
           email,
           handle, 
           cognito_user_id
-        )
+          ) 
         VALUES(%s,%s,%s,%s)
       """
       print('SQL Statement ----')
