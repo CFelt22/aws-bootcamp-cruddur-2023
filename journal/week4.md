@@ -1,4 +1,5 @@
 # Week 4 — Postgres and RDS
+Once again, time is the principal constraint. Everything went good, except for a bug that I spent several hours to fix.
 
 ## Creating bash file for db
 Creation of multiple bash files to simplify the commands to do for the databases.
@@ -64,8 +65,8 @@ Adding code to query objects and arrays.
 ![db.py](/journal/assets/dbpy2_w4.png "db.py")
 [db.py](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/lib/db.py)
 ### Adding queries in home_activities.py
-Adding queries in this page to display in the application.
-![home_activities.py](/journal/assets/homeact2_w4.png "home_activities.py")
+Adding queries in this file to display in the application.
+![home_activities.py](/journal/assets/homeact2_py.png "home_activities.py")
 [home_activities](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/services/home_activities.py)
 
 ## RDS database
@@ -103,28 +104,46 @@ We need to add the lambda function inside a vpc.
 ![lambda vpc](/journal/assets/lambda1_w4.png "vpc")
 
 ## Refactoring the librairy
+We refactored the librairies to create queries instead of using mock data for the application. We also added print for easier debugging.
 
 ### db.py
-
+[db.py](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/lib/db.py)
 ### create_activity.py
-
+![create_activity](/journal/assets/createact1_w4.png "create_activity")
+[create_activity](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/services/create_activity.py)
 ### home_activity.py
-
+![home_activity](/journal/assets/homeact3_w4.png "home_activity")
+[home_activity.py](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/services/home_activities.py)
 
 
 ## SQL
-
+We created insert and queries for the database.
 ### create.sql
-
+This is used when a new message is created.
+![create.sql](/journal/assets/create1_w4.png "create.sql")
+(https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/db/sql/activities/create.sql)
 ### home.sql
-
+This is used to display in the home page of the app.
+![home.sql](/journal/assets/home1_w4.png "home.sql")
+[home.sql](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/db/sql/activities/home.sql)
 ### object.sql
-
+This is used to query an object.
+![object.sql](/journal/assets/object1_w4.png "object.sql")
+[object.sql]https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/backend-flask/db/sql/activities/object.sql
 
 ## Troubleshooting
 
 ### Problem
+I had several problems that I tried to fix when I was trying to post a message. The most persistent one was that *null value in column "user_uuid" of relation "activities" violates not-null constraint"*. I also had problem with the local db. It was not able to understant "db" in the connection url.
+![Error](/journal/assets/error1_w4.png "Error")
 
 ### Attempts
+I understanded that the problem was linked to the uuid that was not passed when a post was made. I saw on discord that the "db" problem was to change it to "localhost". It worked for the db connection errors, but I still wasn't able to post. When injecting mock data, I also had problem with the email that was null. In the seed.sql file, I tried to change data to put my name and username. I also tried to add a fake email. I wasn't working either. I saw on discord that I had to add "user_handle" in the "ActivityForm.js", "HomeFeedPage.js" and in the "app.py" files. It didn't worked either.
+![ActivityForm.js](/journal/assets/activityform1_w4.png "ActivityForm.js")
+![HomeFeedPage.js](/journal/assets/homepage1_w4.png "HomeFeedPage.js")
 
 ### Solution
+I finally found that a user, bayupw, posted about creating a third variable called LOCAL_CONNECTION_URL and it worked for me. I had part of my code that was using the local db and another part that was using the prod db because it wasn’t able to connect to the local db. Once I did this, everything worked. So I used the LOCAL_CONNECTION_URL variable in the "db-setup" bash script. It finally worked and I was able to post messages.
+![Discord](/journal/assets/discord1_w4.png "Discord")
+![Fixed](/journal/assets/fixed1_w4.png "Fixed")
+![Post](/journal/assets/post1_w4.png "Post")
