@@ -37,7 +37,7 @@ def get_user_uuids():
     'my_handle':  'CharlesFelt',
     'other_handle': 'bayko'
   })
-  my_user    = next((item for item in users if item["handle"] == 'andrewbrown'), None)
+  my_user    = next((item for item in users if item["handle"] == 'CharlesFelt'), None)
   other_user = next((item for item in users if item["handle"] == 'bayko'), None)
   results = {
     'my_user': my_user,
@@ -230,7 +230,7 @@ for i in range(len(lines)):
     print(lines[i])
     raise 'invalid line'
 
-  created_at = (now + timedelta(minutes=i)).isoformat()
+  created_at = (now + timedelta(hours=-3) + timedelta(minutes=minute)).isoformat()
   create_message(
     client=ddb,
     message_group_uuid=message_group_uuid,
