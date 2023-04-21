@@ -8,7 +8,7 @@ We changed some of the bash script to have a better structure in the directories
 
 ### Adding boto3
 We added boto3 to the requirements.txt file and installed it.
-![requirements.txt](/journal/assets/requirement1-w5.png "boto3")
+![requirements.txt](/journal/assets/requirements1-w5.png "boto3")
 [requirements.txt](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/b367d924e8c1b00c828c50c448740272fee6931a/backend-flask/requirements.txt)
 
 ### Schema-load
@@ -33,10 +33,41 @@ This script is used to scan items in the table.
 
 ### Seed
 This script is used to inject mock data inside the DynamoDb table.
-![seed]("seed")
+![seed](/journal/assets/seed1-w5.png "seed")
 [seed](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/4a8abc50ac1e45498c98ff7ed22510ea382937a5/backend-flask/bin/ddb/seed)
 
+### Get Conversations
+This script is used to get the content of the mock conversation and see the data.
+![get-conservations](/journal/assets/get-conv1-w5.png "get-conservations")
+[get-conservations](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/fcb935b874450daebf48781e0833ec15f13f87eb/backend-flask/bin/ddb/patterns/get-conversation)
+
+### List Conversations
+This script is used to list the mock conversation and see the data.
+![list-conversations](/journal/assets/list-conv1-w5.png "list-conversations")
+[list-conversations](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/fcb935b874450daebf48781e0833ec15f13f87eb/backend-flask/bin/ddb/patterns/list-conversations)
+
+### db.py
+We modified this script to add parameters and to query values.
+![db.py](/journal/assets/db1-w5.png "db.py")
+[db.py](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/d373a925dacd057b779e3432bd8ef9d41a4ce1aa/backend-flask/lib/db.py)
+
 ## Implement conversations
+
+### Gitpod.yaml
+
+### App.py
+
+### List Users
+
+### Update Cognito Users Id
+
+### Setup
+
+### UUID from Cognito User Id
+
+### DDB.py
+
+### message_groups.py
 
 ## Changing source in setup
 
