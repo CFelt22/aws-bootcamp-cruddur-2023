@@ -4,7 +4,7 @@ The first step was to inject data in the local DynamoDB to make sure the data wa
 ## Restructuring bash scripts
 We changed some of the bash script to have a better structure in the directories.
 
-### Utility scripts
+## Utility scripts
 
 ### Adding boto3
 We added boto3 to the requirements.txt file and installed it.
