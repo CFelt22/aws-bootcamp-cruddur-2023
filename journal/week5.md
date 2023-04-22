@@ -118,6 +118,23 @@ The time in the conversation was not displaying properly. I found in the discord
 [Time](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/bb12e94c64e0d41f4a235eccfc59dd3e62386c48/backend-flask/bin/ddb/seed)
 
 ## DynamoDB in production
+We created a DynamoDB database in AWS. The application will store messages inside. 
 
-![](/journal/assets/db1-w5.png "")
-[]()
+### Lambda function
+This is the lambda function that is trigerred by DynamoDB to query the items in the DB.
+![Lambda](/journal/assets/lambda2-w5.png "Lambda")
+[Lambda](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/91d620906c880fa30fc936f851d01da9d7879b9c/aws/lambdas/cruddur-messaging-stream.py)
+
+### Policy
+This is the policy attached to the lambda function to put, delete and query item.
+![Policy](/journal/assets/db1-w5.png "Policy")
+[Policy](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/91d620906c880fa30fc936f851d01da9d7879b9c/aws/policies/cruddur-message-stream-policy.json)
+
+### Schema-load
+We added the message group uuid and the global index to the schema-load file.
+![schema-load](/journal/assets/schemaload1-w5.png "schema-load")
+[schema-load](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/91d620906c880fa30fc936f851d01da9d7879b9c/backend-flask/bin/ddb/schema-load)
+This is a conversation.
+![Conversation](/journal/assets/conv3-w5.png "Conversation")
+Those are the items in the DynamoDB database.
+![Items](/journal/assets/conv3-w5.png "Items")
