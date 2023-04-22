@@ -127,7 +127,7 @@ This is the lambda function that is trigerred by DynamoDB to query the items in 
 
 ### Policy
 This is the policy attached to the lambda function to put, delete and query item.
-![Policy](/journal/assets/db1-w5.png "Policy")
+![Policy](/journal/assets/policy1-w5.png "Policy")
 [Policy](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/91d620906c880fa30fc936f851d01da9d7879b9c/aws/policies/cruddur-message-stream-policy.json)
 
 ### Schema-load
