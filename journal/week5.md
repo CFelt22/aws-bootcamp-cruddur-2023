@@ -116,6 +116,7 @@ I had many problems to display the data in the application. In previous weeks, I
 The time in the conversation was not displaying properly. I found in the discord channel someone had posted a solution. It didn't worked the right way, all the messages were 1h ago. I modified it to be like this.
 ![Time](/journal/assets/time1-w5.png "Time")
 [Time](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/bb12e94c64e0d41f4a235eccfc59dd3e62386c48/backend-flask/bin/ddb/seed)
+![Conversation](/journal/assets/conv1-w5.png "Conversation")
 
 ## DynamoDB in production
 We created a DynamoDB database in AWS. The application will store messages inside. 
@@ -137,4 +138,4 @@ We added the message group uuid and the global index to the schema-load file.
 This is a conversation.
 ![Conversation](/journal/assets/conv3-w5.png "Conversation")
 Those are the items in the DynamoDB database.
-![Items](/journal/assets/conv3-w5.png "Items")
+![Items](/journal/assets/dbitems1-w5.png "Items")
