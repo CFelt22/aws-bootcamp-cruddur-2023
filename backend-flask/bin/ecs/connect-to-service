@@ -1,13 +1,13 @@
 #! /usr/bin/bash
 
 if [ -z "$1" ]; then
-  echo "No TASK_ID argument supplied eg ./bin/ddb/drop cruddur-messages prod"
+  echo "No TASK_ID argument supplied eg ./bin/ecs/connect-to-service d96a82369f994ce2958fe81b935a2c9b backend flask"
   exit 1
 fi
 TASK_ID=$1
 
 if [ -z "$2" ]; then
-  echo "No CONTAINER_NAME argument supplied eg ./bin/ddb/drop cruddur-messages prod"
+  echo "No CONTAINER_NAME argument supplied eg ./bin/ecs/connect-to-service d96a82369f994ce2958fe81b935a2c9b backend flask"
   exit 1
 fi
 CONTAINER_NAME=$2
