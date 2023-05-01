@@ -6,8 +6,23 @@ These weeks were about deploying our frontend and backend containers to AWS. We 
 #### Health-checks
 First step was to add the health-check route to app.py. Then we added the test file for the database and the file for the backend.
 
+### Service role
+We created services roles and policies to allow access between all AWS services that we need such as the parameter store, CloudWatch, ALB and ECR.  
+CruddurTaskRole
+![CruddurTaskRole](/journal/assets/ctr1-w6.png "CruddurTaskRole") 
+CruddurServiceExecutionRole
+![CruddurServiceExecutionRole](/journal/assets/cser1-w6.png "CruddurServiceExecutionRole")
+AWSServiceRoleForECS
+![AWSServiceRoleForECS](/journal/assets/asrfe1-w6.png "AWSServiceRoleForECS")
+
+### Task definitions
+We created task definitions for the frontend and the backend containers. It contains the parameters of the containers.
+![Cluster](/journal/assets/cluster1-w6.png "Cluster")
+[Frontend](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/task-definitions/frontend-react-js.json)
+[Backend](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/task-definitions/backend-flask.json)
+
 ### ECS Cluster
-We created the ECR repo for the frontend and the backend, pushed the images, created a cluster and deployed the containers to fargate.
+We created the ECR repo for the frontend and the backend, pushed the images, created a cluster and deployed the containers to fargate. We also created service roles for ECS.
 ![Cluster](/journal/assets/cluster1-w6.png "Cluster")
 ![Services](/journal/assets/services1-w6.png "Services")
 ![Tasks](/journal/assets/tasks1-w6.png "Tasks")
@@ -16,12 +31,18 @@ We created the ECR repo for the frontend and the backend, pushed the images, cre
 
 ### Domain
 I redirected my dns to be managed in Route53. I created a hosted zone, a record for the cruddur application and another subdomain for the backend.
+![Hosted Zone](/journal/assets/hostedzone1-w6.png "Hosted Zone")
+![Records](/journal/assets/dns1-w6.png "Records")
 
 ### SSL Certificate
 In certificate manager, I created a SSL certificate for HTTPS.
+![Certificate](/journal/assets/dns1-w6.png "Certificate")
 
 ### Load balancer
-We configured the load balancer to direct trafic on the right ports of the containers. I then added the certificate to the load balancer. 
+We configured the load balancer and a target group to direct trafic on the right ports of the containers. I then added the certificate to the load balancer. We created an IAM policy to allow logs in CloudWatch.
+![Load-balancer](/journal/assets/loadb1-w6.png "Load-Balancer")
+![Target Group](/journal/assets/target1-w6.png "Target Group")
+![Service Role](/journal/assets/asrfelb1-w6.png "Service Role")
 
 ### Configure CORS to only permit traffic from our domain.
 
@@ -38,14 +59,17 @@ We spend some time to refactor the bin directory and create new bash scripts for
 ### X-ray and Container Insights.
 We added x-ray configuration and turned on ontainer insights to make sure we get information from the containers while they are running.
 
-Change Docker compose to use a user-defined network.
+### Change Docker compose to use a user-defined network.
 
 ### Docker file for production.
 We created a new Dockerfile to use in production. We used the production env variables.
+[Frontend](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/3f00aded61f3969bde9d70037961fea2d6f77283/frontend-react-js/Dockerfile.prod)
+[Backend](
 
 ### Using Ruby to generate out env files for docker using erb templates.
 We used ruby to generate the env files to make sure that we properly pass the to the containers. We used Ruby and .erb files. By adding the .env to gitignore, we make sure that we don't commit critical informations end expose them. We didi one file for the frontend and one for the backend.
-![env](/journal/assets/front-env1-w6.png "env")
+![Frontend](/journal/assets/rubyfront1-w6.png "Frontend")
+![Backend](/journal/assets/rubyback1-w6.png "Backend")
 [env]()
 
 ## Open Up The Cloud Homework
