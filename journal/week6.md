@@ -1,6 +1,9 @@
-# Week 6 — Deploying Containers
+# Week 6 & 7 — Deploying Containers
+These weeks were about deploying our frontend and backend containers to AWS. We had to make sure the infrastructure around it was working properly. Here are the tasks that we had to do. At the bottom of the journal, I put the Open Up the CLoud Homework. Once again, I didn't had the time to do extra homework, I'm trying to catch up the schedule.
 
-Provision ECS Cluster
+## Tasks
+
+### Provision ECS Cluster
 
 Create ECR Repo
 Push images for backend
