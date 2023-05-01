@@ -8,6 +8,11 @@ First step was to add the health-check route to app.py. Then we added the test f
 
 ### ECS Cluster
 We created the ECR repo for the frontend and the backend, pushed the images, created a cluster and deployed the containers to fargate.
+![Cluster](/journal/assets/cluster1-w6.png "Cluster")
+![Services](/journal/assets/services1-w6.png "Services")
+![Tasks](/journal/assets/tasks1-w6.png "Tasks")
+![Backend](/journal/assets/backend1-w6.png "Backend")
+![Frontend](/journal/assets/frontend1-w6.png "Frontend")
 
 ### Domain
 I redirected my dns to be managed in Route53. I created a hosted zone, a record for the cruddur application and another subdomain for the backend.
