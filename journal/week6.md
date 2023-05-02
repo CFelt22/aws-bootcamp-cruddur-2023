@@ -5,6 +5,9 @@ These weeks were about deploying our frontend and backend containers to AWS. We 
 
 #### Health-checks
 First step was to add the health-check route to app.py. Then we added the test file for the database and the file for the backend.
+![Health-Check](/journal/assets/healthcheck1-w6.png "Health-Check")
+![App.py](/journal/assets/app1-w6.png "App.py")
+![Frontend](/journal/assets/hcfront1-w6.png "Frontend")
 
 ### Service role
 We created services roles and policies to allow access between all AWS services that we need such as the parameter store, CloudWatch, ALB and ECR.  
@@ -48,9 +51,13 @@ We configured the load balancer and a target group to direct trafic on the right
 
 ### Debug mode.
 We made sure the production application was not running in debug mode for security reasons.
+![Debug](/journal/assets/nodebug1-w6 "Debug")
+[Debug](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/8e9ff3c446d304861f919ec73fd88e801b985cbf/backend-flask/Dockerfile.prod)
 
 ### Refresh token for Amazon Cognito
-We implemented the refresh token to make sure that it is passed in the application whenever we naviguate the different pages.
+We implemented the refresh token to make sure that it is passed in the application whenever we naviguate the different pages. We did the modification for : MessageForm.js, HomeFeedPage.js, MessageGroupNewPage.js, MessageGroupPage.js, MessageGroupsPage.js and CheckAuth.js.
+![CheckAuth.js](/journal/assets/CheckAuth1-w6.png "CheckAuth.js")
+[CheckAuth.js](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/cc82d116858fe58719a8954800bbefb088abec8f/frontend-react-js/src/lib/CheckAuth.js)
 
 ### Bin directory
 We spend some time to refactor the bin directory and create new bash scripts for commands that we use frequently. I will not post every modifications that we did, it will be too long. You can consult the link :
@@ -58,19 +65,28 @@ We spend some time to refactor the bin directory and create new bash scripts for
 
 ### X-ray and Container Insights.
 We added x-ray configuration and turned on ontainer insights to make sure we get information from the containers while they are running.
+![Frontend](/journal/assets/xrayfront1-w6.png "Frontend")
 
 ### Change Docker compose to use a user-defined network.
+![Network](/journal/assets/network1-w6 "Network")
+[Network](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/8e9ff3c446d304861f919ec73fd88e801b985cbf/docker-compose.yaml)
 
 ### Docker file for production.
 We created a new Dockerfile to use in production. We used the production env variables.
 [Frontend](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/3f00aded61f3969bde9d70037961fea2d6f77283/frontend-react-js/Dockerfile.prod)
-[Backend](
+[Backend](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/8e9ff3c446d304861f919ec73fd88e801b985cbf/backend-flask/Dockerfile.prod)
 
 ### Using Ruby to generate out env files for docker using erb templates.
 We used ruby to generate the env files to make sure that we properly pass the to the containers. We used Ruby and .erb files. By adding the .env to gitignore, we make sure that we don't commit critical informations end expose them. We didi one file for the frontend and one for the backend.
 ![Frontend](/journal/assets/rubyfront1-w6.png "Frontend")
 ![Backend](/journal/assets/rubyback1-w6.png "Backend")
-[env]()
+[Frontend](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/erb/frontend-react-js.env.erb)
+[Backtend](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/erb/backend-flask.env.erb)
+
+### Fix Timezone
+We fixed the timezone problems in the application by changing the code in file ddb.py, ddb seed, ActivityContent.js, MessageGroupItem.js, MessageItem.js amd centralized the time functions inside a file in the librairy.
+![DateTime](/journal/assets/datetime1-w6 "DateTime")
+[DateTimeFormats.js](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/0990850f0c1227f3b9edc501a019cea1a545dee8/frontend-react-js/src/lib/DateTimeFormats.js)
 
 ## Open Up The Cloud Homework
 
