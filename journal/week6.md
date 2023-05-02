@@ -47,11 +47,9 @@ We configured the load balancer and a target group to direct trafic on the right
 ![Target Group](/journal/assets/target1-w6.png "Target Group")
 ![Service Role](/journal/assets/asrfelb1-w6.png "Service Role")
 
-### Configure CORS to only permit traffic from our domain.
-
 ### Debug mode.
 We made sure the production application was not running in debug mode for security reasons.
-![Debug](/journal/assets/nodebug1-w6 "Debug")
+![Debug](/journal/assets/nodebug1-w6.png "Debug")
 [Debug](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/8e9ff3c446d304861f919ec73fd88e801b985cbf/backend-flask/Dockerfile.prod)
 
 ### Refresh token for Amazon Cognito
@@ -68,7 +66,7 @@ We added x-ray configuration and turned on ontainer insights to make sure we get
 ![Frontend](/journal/assets/xrayfront1-w6.png "Frontend")
 
 ### Change Docker compose to use a user-defined network.
-![Network](/journal/assets/network1-w6 "Network")
+![Network](/journal/assets/network1-w6.png "Network")
 [Network](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/8e9ff3c446d304861f919ec73fd88e801b985cbf/docker-compose.yaml)
 
 ### Docker file for production.
@@ -85,7 +83,7 @@ We used ruby to generate the env files to make sure that we properly pass the to
 
 ### Fix Timezone
 We fixed the timezone problems in the application by changing the code in file ddb.py, ddb seed, ActivityContent.js, MessageGroupItem.js, MessageItem.js amd centralized the time functions inside a file in the librairy.
-![DateTime](/journal/assets/datetime1-w6 "DateTime")
+![DateTime](/journal/assets/datetime1-w6.png "DateTime")
 [DateTimeFormats.js](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/0990850f0c1227f3b9edc501a019cea1a545dee8/frontend-react-js/src/lib/DateTimeFormats.js)
 
 ## Open Up The Cloud Homework
