@@ -4,5 +4,5 @@ ABS_PATH=$(readlink -f "$0")
 SERVERLESS_PATH=$(dirname $ABS_PATH)
 DATA_FILE_PATH="$SERVERLESS_PATH/files/Data.jpg"
 
-aws s3 rm "s3://assets.$DOMAIN_NAME/avatar/original/Data.jpg"
-aws s3 rm "s3://assets.$DOMAIN_NAME/avatar/processed/Data.jpeg"
+aws s3 rm "s3://cruddur-uploaded-avatars-cfelt/Data.jpg"
+aws s3 rm "s3://assets.$DOMAIN_NAME/avatars/Data.jpg"
