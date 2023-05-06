@@ -31,7 +31,7 @@ export function time_ago(value){
   const datetime = DateTime.fromISO(value, { zone: 'utc' })
   const future = datetime.setZone(Intl.DateTimeFormat().resolvedOptions().timeZone);
   const now     = DateTime.now()
-  const diff_mins = future.diff(future 'minutes').toObject().minutes;
+  const diff_mins = future.diff(future, 'minutes').toObject().minutes;
   const diff_hours = future.diff(future, 'hours').toObject().hours;
   const diff_days = future.diff(future, 'days').toObject().days;
 
