@@ -6,9 +6,15 @@ LABEL="db-kill-all"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 
 ABS_PATH=$(readlink -f "$0")
-BD_PATH=$(dirname $ABS_PATH)
+#echo $ABS_PATH
+DB_PATH=$(dirname $ABS_PATH)
+#echo $DB_PATH
 BIN_PATH=$(dirname $DB_PATH)
-BACKEND_FLASK_PATH="$BIN_PATH/backend-flask"
+#echo $BIN_PATH
+WRKSPACE_PATH=$(dirname $BIN_PATH)
+#echo $WRKSPACE_PATH
+BACKEND_FLASK_PATH="$WRKSPACE_PATH/backend-flask"
+echo $BACKEND_FLASK_PATH
 kill_path="$BACKEND_FLASK_PATH/db/kill-all-connections.sql"
 echo $kill_path
 
