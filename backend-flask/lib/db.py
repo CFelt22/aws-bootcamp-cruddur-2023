@@ -25,6 +25,7 @@ class Db:
 
   def init_pool(self):
     connection_url = os.getenv("CONNECTION_URL")
+    print("Connection URL received is: ", connection_url)
     self.pool = ConnectionPool(connection_url)
 
   def print_params(self,params):
