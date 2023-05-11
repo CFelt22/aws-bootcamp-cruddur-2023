@@ -7,11 +7,11 @@ LABEL="db-setup"
 printf "${CYAN}==== ${LABEL}${NO_COLOR}\n"
 
 ABS_PATH=$(readlink -f "$0")
-echo $ABS_PATH
+#echo $ABS_PATH
 DB_PATH=$(dirname $ABS_PATH)
-echo $DB_PATH
+#echo $DB_PATH
 BIN_PATH=$(dirname $DB_PATH)
-echo $BIN_PATH
+#echo $BIN_PATH
 
 source "$DB_PATH/setup"
 python "$BIN_PATH/ddb/schema-load"
