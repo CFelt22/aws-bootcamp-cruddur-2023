@@ -24,30 +24,30 @@ class Db:
     return template_content
 
   # Remove it when in prod
-  def init_pool(self):
-    connection_url = os.getenv("CONNECTION_URL")
-    print("Connection URL received is:", connection_url)
-
-    try:
-        self.pool = ConnectionPool(connection_url)
-        print("Successfully connected using the first connection URL.")
-    except Exception as e:
-        print("Failed to connect using the first connection URL:", str(e))
-
-        # Define a local connection URL
-        local_connection_url = os.getenv("LOCAL_CONNECTION_URL")
-        print("Local connection URL received is:", local_connection_url)
-
-        try:
-            self.pool = ConnectionPool(local_connection_url)
-            print("Successfully connected using the local connection URL.")
-        except Exception as e:
-            print("Failed to connect using the local connection URL:", str(e))
-
   #def init_pool(self):
   #  connection_url = os.getenv("CONNECTION_URL")
-  #  print("Connection URL received is: ", connection_url)
-  #  self.pool = ConnectionPool(connection_url)
+  #  print("Connection URL received is:", connection_url)
+
+  #  try:
+  #      self.pool = ConnectionPool(connection_url)
+  #      print("Successfully connected using the first connection URL.")
+  #  except Exception as e:
+  #      print("Failed to connect using the first connection URL:", str(e))
+
+        # Define a local connection URL
+  #      local_connection_url = os.getenv("LOCAL_CONNECTION_URL")
+  #      print("Local connection URL received is:", local_connection_url)
+
+  #      try:
+  #          self.pool = ConnectionPool(local_connection_url)
+  #          print("Successfully connected using the local connection URL.")
+  #      except Exception as e:
+  #          print("Failed to connect using the local connection URL:", str(e))
+
+  def init_pool(self):
+    connection_url = os.getenv("CONNECTION_URL")
+    print("Connection URL received is: ", connection_url)
+    self.pool = ConnectionPool(connection_url)
 
   def print_params(self,params):
     blue = '\033[94m'
