@@ -14,4 +14,4 @@ BIN_PATH=$(dirname $DB_PATH)
 #echo $BIN_PATH
 
 python "$DB_PATH/update_cognito_user_ids"
-source "$BIN_PATH/ddb/seed"
+python "$BIN_PATH/ddb/seed"
