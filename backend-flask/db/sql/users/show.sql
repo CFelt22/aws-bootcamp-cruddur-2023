@@ -23,7 +23,7 @@ SELECT
     FROM public.activities
     WHERE
       activities.user_uuid = users.uuid
-    ORDER BY activitiers.created_at DESC
+    ORDER BY activities.created_at DESC
     LIMIT 40
   ) array_row) as activities
 FROM public.users
