@@ -1,5 +1,12 @@
 #! /usr/bin/bash
 
-source "$THEIA_WORKSPACE_ROOT/bin/db/localdb"
+ABS_PATH=$(readlink -f "$0")
+echo $ABS_PATH
+LAUNCH_PATH=$(dirname $ABS_PATH)
+echo $LAUNCH_PATH
+BIN_PATH=$(dirname $LAUNCH_PATH)
+echo $BIN_PATH
 
-source "$THEIA_WORKSPACE_ROOT/bin/db/do-migrate"
+source "$BIN_PATH/db/localdb"
+
+source "$BIN_PATH/db/do-migrate"

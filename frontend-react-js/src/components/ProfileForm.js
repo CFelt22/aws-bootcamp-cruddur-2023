@@ -39,6 +39,31 @@ export default function ProfileForm(props) {
     }
   }
 
+  const s3uploadkey = async (event)=> {
+    try {
+      console.log('s3upload')
+      const backend_url = ""
+      await getAccessToken()
+      const access_token = localStorage.getItem("access_token")
+      const res = await fetch(backend_url, {
+        method: "POST",
+        headers: {
+          'Authorization': `Bearer ${access_token}`,
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+      let data = await res.json();
+      if (res.status === 200) {
+        console.log('presigned url',data)
+      } else {
+        console.log(res)
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   const onsubmit = async (event) => {
     event.preventDefault();
     try {
@@ -98,10 +123,12 @@ export default function ProfileForm(props) {
             </div>
           </div>
           <div className="popup_content">
-            <div className="upload" onClick={s3upload}>
+            <div className="upload" onClick={s3uploadkey}>
               Upload Avatar
 
             </div>
+          <input type='file' name='avatarupload' onChange={s3upload} accept='image/png, image/jpeg, image/jpg' />
+          
             <div className="field display_name">
               <label>Display Name</label>
               <input
