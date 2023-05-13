@@ -14,7 +14,7 @@ export default function ProfileForm(props) {
     setDisplayName(props.profile.display_name);
   }, [props.profile])
 
-  const s3upload = async (event)=> {
+  const s3uploadkey = async (event)=> {
     try {
       console.log('s3upload')
       const backend_url = `https://m9hr6qoavj.execute-api.ca-central-1.amazonaws.com/avatars/key_upload`
@@ -39,18 +39,23 @@ export default function ProfileForm(props) {
     }
   }
 
-  const s3uploadkey = async (event)=> {
+  const s3upload = async (event)=> {
+    console.log(event)
+    const file = event.target.files[0]
+    const filename = file.name
+    const size = file.size
+    const type = file.type
+    const preview_image_url = URL.createObjectURL(file)
+    console.log('file', file, filename, size, type)
+
     try {
       console.log('s3upload')
       const backend_url = ""
-      await getAccessToken()
-      const access_token = localStorage.getItem("access_token")
       const res = await fetch(backend_url, {
-        method: "POST",
+        method: "PUT",
+        body: file,
         headers: {
-          'Authorization': `Bearer ${access_token}`,
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+          'Content-Type': type
         }
       });
       let data = await res.json();
