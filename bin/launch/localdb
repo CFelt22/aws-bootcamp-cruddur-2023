@@ -1,0 +1,7 @@
+#! /usr/bin/bash
+
+docker compose up
+
+source "$THEIA_WORKSPACE_ROOT/bin/db/localdb"
+
+source "$THEIA_WORKSPACE_ROOT/bin/db/do-migrate"
