@@ -1,0 +1,28 @@
+#! /usr/bin/bash
+set -e # stop if it fails at any point
+
+ABS_PATH=$(readlink -f "$0")
+#echo $ABS_PATH
+DB_PATH=$(dirname $ABS_PATH)
+#echo $DB_PATH
+BIN_PATH=$(dirname $DB_PATH)
+#echo $BIN_PATH
+WRKSPACE_PATH=$(dirname $BIN_PATH)
+#echo $WRKSPACE_PATH
+
+CYAN='\033[1;36m'
+NO_COLOR='\033[0m'
+LABEL="Switching to LOCAL_CONNECTION_URL"
+printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
+
+sed -i 's/connection_url = os\.getenv("CONNECTION_URL")/connection_url = os.getenv("LOCAL_CONNECTION_URL")/' $WRKSPACE_PATH/backend-flask/lib/db.py
+
+python "$BIN_PATH/db/rollback"
+
+CYAN='\033[1;36m'
+NO_COLOR='\033[0m'
+LABEL="Switching to CONNECTION_URL"
+printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
+
+sed -i 's/connection_url = os\.getenv("LOCAL_CONNECTION_URL")/connection_url = os.getenv("CONNECTION_URL")/' $WRKSPACE_PATH/backend-flask/lib/db.py
+
