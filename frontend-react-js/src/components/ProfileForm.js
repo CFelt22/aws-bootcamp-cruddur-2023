@@ -23,6 +23,7 @@ export default function ProfileForm(props) {
       const res = await fetch(backend_url, {
         method: "POST",
         headers: {
+          'Origin': "https://3000-cfelt22-awsbootcampcrud-rv24f6hpbgl.ws-us97.gitpod.io",
           'Authorization': `Bearer ${access_token}`,
           'Accept': 'application/json',
           'Content-Type': 'application/json'
@@ -31,6 +32,7 @@ export default function ProfileForm(props) {
       let data = await res.json();
       if (res.status === 200) {
         console.log('presigned url',data)
+        return data.url
       } else {
         console.log(res)
       }
@@ -47,11 +49,11 @@ export default function ProfileForm(props) {
     const type = file.type
     const preview_image_url = URL.createObjectURL(file)
     console.log('file', file, filename, size, type)
-
+    const presignedurl = await s3uploadkey()
+    console.log(presignedurl)
     try {
       console.log('s3upload')
-      const backend_url = ""
-      const res = await fetch(backend_url, {
+      const res = await fetch(presignedurl, {
         method: "PUT",
         body: file,
         headers: {
@@ -60,6 +62,7 @@ export default function ProfileForm(props) {
       });
       let data = await res.json();
       if (res.status === 200) {
+        setPresignedurl(data.url)
         console.log('presigned url',data)
       } else {
         console.log(res)
