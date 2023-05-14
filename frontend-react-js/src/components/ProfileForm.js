@@ -5,33 +5,31 @@ import {getAccessToken} from 'lib/CheckAuth';
 import { S3Client } from '@aws-sdk/client-s3';
 
 export default function ProfileForm(props) {
-  const [bio, setBio] = React.useState(0);
-  const [displayName, setDisplayName] = React.useState(0);
+  const [bio, setBio] = React.useState('');
+  const [displayName, setDisplayName] = React.useState('');
 
   React.useEffect(()=>{
-    console.log('useEffects',props)
-    setBio(props.profile.bio);
+    setBio(props.profile.bio || '');
     setDisplayName(props.profile.display_name);
   }, [props.profile])
 
   const s3uploadkey = async (event)=> {
     try {
-      console.log('s3upload')
-      const backend_url = `https://m9hr6qoavj.execute-api.ca-central-1.amazonaws.com/avatars/key_upload`
+      const gateway_url = `${process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL}/avatars/key_upload`
+      console.log('Gateway URL ====>', gateway_url)
       await getAccessToken()
       const access_token = localStorage.getItem("access_token")
-      const res = await fetch(backend_url, {
+      const res = await fetch(gateway_url, {
         method: "POST",
         headers: {
-          'Origin': "https://3000-cfelt22-awsbootcampcrud-rv24f6hpbgl.ws-us97.gitpod.io",
+          'Origin': process.env.REACT_APP_FRONTEND_URL,
           'Authorization': `Bearer ${access_token}`,
           'Accept': 'application/json',
           'Content-Type': 'application/json'
         }
-      });
+      })
       let data = await res.json();
       if (res.status === 200) {
-        console.log('presigned url',data)
         return data.url
       } else {
         console.log(res)
@@ -50,7 +48,6 @@ export default function ProfileForm(props) {
     const preview_image_url = URL.createObjectURL(file)
     console.log('file', file, filename, size, type)
     const presignedurl = await s3uploadkey()
-    console.log(presignedurl)
     try {
       console.log('s3upload')
       const res = await fetch(presignedurl, {
@@ -59,11 +56,10 @@ export default function ProfileForm(props) {
         headers: {
           'Content-Type': type
         }
-      });
-      let data = await res.json();
+      })
       if (res.status === 200) {
         setPresignedurl(data.url)
-        console.log('presigned url',data)
+        console.log('presignedurl',data)
       } else {
         console.log(res)
       }
