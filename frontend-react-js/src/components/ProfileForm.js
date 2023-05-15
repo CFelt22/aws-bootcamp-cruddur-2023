@@ -14,6 +14,7 @@ export default function ProfileForm(props) {
 
   const s3uploadkey = async (extension)=> {
     console.log('ext',extension)
+    console.log('API Gateway ====>', process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL)
     try {
       const gateway_url = `${process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL}/avatars/key_upload`
       console.log('Gateway URL ====>', gateway_url)
@@ -23,6 +24,8 @@ export default function ProfileForm(props) {
       const json = {
         extension: extension
       }
+      console.log('JSON ====>', json)
+      console.log('Origin ====>', process.env.REACT_APP_FRONTEND_URL)
       const res = await fetch(gateway_url, {
         method: "POST",
         body: JSON.stringify(json),
@@ -33,6 +36,7 @@ export default function ProfileForm(props) {
           'Content-Type': 'application/json'
         }
       })
+      console.log('Res ====>', res)
       let data = await res.json();
       if (res.status === 200) {
         return data.url
