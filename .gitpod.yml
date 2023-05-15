@@ -10,8 +10,8 @@ tasks:
     init: 
       cd "aws-bootcamp-cruddur-2023/aws/lambdas/cruddur-upload-avatar/"
       bundle install
-    command:
       cd $THEIA_WORKSPACE_ROOT
+    command:
       bash bin/ecr/login
   - name: postgres
     before: |
