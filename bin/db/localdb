@@ -29,3 +29,10 @@ LABEL="Switching to CONNECTION_URL"
 printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
 
 sed -i 's/connection_url = os\.getenv("LOCAL_CONNECTION_URL")/connection_url = os.getenv("CONNECTION_URL")/' $WRKSPACE_PATH/backend-flask/lib/db.py
+
+CYAN='\033[1;36m'
+NO_COLOR='\033[0m'
+LABEL="Migrate"
+printf "${CYAN}== ${LABEL}${NO_COLOR}\n"
+
+source "$DB_PATH/do-migrate"
