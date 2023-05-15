@@ -2,7 +2,6 @@ import './ProfileForm.css';
 import React from "react";
 import process from 'process';
 import {getAccessToken} from 'lib/CheckAuth';
-import { S3Client } from '@aws-sdk/client-s3';
 
 export default function ProfileForm(props) {
   const [bio, setBio] = React.useState('');
@@ -13,14 +12,20 @@ export default function ProfileForm(props) {
     setDisplayName(props.profile.display_name);
   }, [props.profile])
 
-  const s3uploadkey = async (event)=> {
+  const s3uploadkey = async (extension)=> {
+    console.log('ext',extension)
     try {
       const gateway_url = `${process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL}/avatars/key_upload`
       console.log('Gateway URL ====>', gateway_url)
       await getAccessToken()
       const access_token = localStorage.getItem("access_token")
+      console.log('Access token ====>', access_token)
+      const json = {
+        extension: extension
+      }
       const res = await fetch(gateway_url, {
         method: "POST",
+        body: JSON.stringify(json),
         headers: {
           'Origin': process.env.REACT_APP_FRONTEND_URL,
           'Authorization': `Bearer ${access_token}`,
@@ -46,8 +51,11 @@ export default function ProfileForm(props) {
     const size = file.size
     const type = file.type
     const preview_image_url = URL.createObjectURL(file)
-    console.log('file', file, filename, size, type)
-    const presignedurl = await s3uploadkey()
+    console.log(filename,size,type)
+    const fileparts = filename.split('.')
+    const extension = fileparts[fileparts.length-1]
+    const presignedurl = await s3uploadkey(extension)
+    console.log('PreSigned URL ====>', presignedurl)
     try {
       console.log('s3upload')
       const res = await fetch(presignedurl, {
@@ -58,10 +66,11 @@ export default function ProfileForm(props) {
         }
       })
       if (res.status === 200) {
-        setPresignedurl(data.url)
-        console.log('presignedurl',data)
+        const data = await res.json();
+        return data.url;
       } else {
-        console.log(res)
+        console.log(res, res.status)
+        return null;
       }
     } catch (err) {
       console.log(err);
@@ -127,11 +136,8 @@ export default function ProfileForm(props) {
             </div>
           </div>
           <div className="popup_content">
-            <div className="upload" onClick={s3uploadkey}>
-              Upload Avatar
 
-            </div>
-          <input type='file' name='avatarupload' onChange={s3upload} accept='image/png, image/jpeg, image/jpg' />
+            <input type="file" name="avatarupload" onChange={s3upload} />
           
             <div className="field display_name">
               <label>Display Name</label>
