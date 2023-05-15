@@ -13,7 +13,7 @@ export default function ProfileForm(props) {
   }, [props.profile])
 
   const s3uploadkey = async (extension)=> {
-    console.log('ext',extension)
+    console.log('Extension ====>',extension)
     console.log('API Gateway ====>', process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL)
     try {
       const gateway_url = `${process.env.REACT_APP_API_GATEWAY_ENDPOINT_URL}/avatars/key_upload`
@@ -67,8 +67,8 @@ export default function ProfileForm(props) {
         body: file,
         headers: {
           'Content-Type': type
-        }
-      })
+      }})
+
       if (res.status === 200) {
         const data = await res.json();
         return data.url;
