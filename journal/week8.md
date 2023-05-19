@@ -16,19 +16,32 @@ We created the content of the Lambda function to process the image. We also crea
 We created a CloudFront distribution to cache and serve the content of the S3 Bucket used to store the users avatar and the banners.
 ![CloudFront](/journal/assets/CloudFront1_w8.png "CloudFront")
 
-## Implement Users Profile Page
-We added the ossibility of changing the name and the bio of the user. We had to add the bio in the database. We created a script to migrate the database and to rollback.
+## Implement Users Profile Page, Migrations Backend Endpoint and Profile Form
+### Profile heading
+We created the profile heading component to contain all the user infos and integrated a banner.
+![ProfileHeading.js](/journal/assets/profileheading1_w8.png "ProfileHeading.js")
+[ProfileHeading.js](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/13f8674510a60169ff1e3d033f4f36cce6a11314/frontend-react-js/src/components/ProfileHeading.js)
+
+### Bio
+We added the possibility of changing the name and the bio of the user. We had to add the bio column in the database and implement the modifications of those informations. We created a script to migrate and roll backthe the database.
 ![Avatar](/journal/assets/AvatarUpload1_w8.png "Avatar")
 ![Migrate](/journal/assets/migrate1_w8.png "Migrate")
 [Migrate](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/bin/db/migrate)
 [Rollback](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/bin/db/rollback)
 
-## Implement Migrations Backend Endpoint and Profile Form
+### Upload button
+We added a button to upload the avatar image.
+![EditProfileButton](/journal/assets/editprofilebutton1_w8.png "EditProfileButton")
 
 ## Implement Avatar Uploading
+We created a lambda function and an API Gateway to POST the uploaded avatar picture in the S3 Bucket who is processing the image.
+![Lambda](/journal/assets/lambdaauth1_w8.png "Lambda")
+![Lambda](/journal/assets/lambdaauth2_w8.png "Lambda")
+[Lambda](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/lambdas/lambda-authorizer/index.js)
 
 ## Fix CORS for API Gateway and Lambda Layers
-We added the CORS configuration in the S3 Bucket permissions.
+We added the CORS configuration in the S3 Bucket permissions. I had a lot of problems with CORS error. I was always getting undefined presignedurl, so the image was never uploading. After many hours of search and minor bug fixing, with the posted messages from F4dy and Beici Liang on the Discord channel, I validated every steps of the implementation and found out that I forgot to add the CLIENT_ID and USER_POOL_ID in the environment variables of the lambda function. I also found that I had a typo in the code from the Lambda function. I had *to-json* instead of *to_json*.
+
 
 ## Render Avatar from CloudFront
 We created a separate js file for the avatar. This component is fetching the avatar image from the CloudFront distribution and is using the user uuid. So we added the user uuid in the CheckAuth.js file, in the ProfileInfo.js file and in the ProfileHeading.js file. We also added the user uuid in the SQL query of the shoe.sql file.
