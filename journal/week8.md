@@ -7,7 +7,7 @@ In the *thumbing-serverles-cdk* directory, we setup the CDK to deploy a lambda f
 ![Stacks](/journal/assets/Bootstrap+Stack1_w8.png "Stacks")
 [thumbing-serverless-cdk](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/tree/main/thumbing-serverless-cdk)
 ### Lambdas
-We created the content of the Lambda function to process the image.  
+We created the content of the Lambda function to process the image. We also created bash scripts to test the upload and clear the bucket.  
 [index.js](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/lambdas/process-images/index.js)  
 [s3-image-processing.js](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/91138bc94c91a62ebd392ce0d686412c3d608e62/aws/lambdas/process-images/s3-image-processing.js)
 
