@@ -14,7 +14,7 @@ We created the content of the Lambda function to process the image. We also crea
 
 ## Serving Avatars via CloudFront
 We created a CloudFront distribution to cache and serve the content of the S3 Bucket used to store the users avatar and the banners.
-![CloudFront](/journal/assets/cloudfront1_w8.png "CloudFront")
+![CloudFront](/journal/assets/CloudFront1_w8.png "CloudFront")
 
 ## Implement Users Profile Page
 We added the ossibility of changing the name and the bio of the user. We had to add the bio in the database. We created a script to migrate the database and to rollback.
