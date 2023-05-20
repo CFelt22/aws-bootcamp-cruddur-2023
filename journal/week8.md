@@ -1,5 +1,5 @@
 # Week 8 — Serverless Image Processing
-This week was about implementing the user profile page. First we used CDK to deploy a S3 Bucket and a Lambda function that format the uploaded profile avatars images. Then we added the popup user profile info and make it possible to save the informations in the local db. We created a CloudFront distribution to cache the images. 
+This week was about implementing the user profile page. First we used CDK to deploy a S3 Bucket and a Lambda function that format the uploaded profile avatars images. Then we added the popup user profile info and make it possible to save the informations in the local db. We created a CloudFront distribution to cache the images.
 
 ## Serverless Image Processing
 ### CDK 
@@ -26,12 +26,14 @@ We created the profile heading component to contain all the user infos and integ
 We added the possibility of changing the name and the bio of the user. We had to add the bio column in the database and implement the modifications of those informations. We created a script to migrate and roll backthe the database.
 ![Avatar](/journal/assets/AvatarUpload1_w8.png "Avatar")
 ![Migrate](/journal/assets/migrate1_w8.png "Migrate")
-[Migrate](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/bin/db/migrate)
+[Migrate](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/bin/db/migrate)  
 [Rollback](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/bin/db/rollback)
 
-### Upload button
-We added a button to upload the avatar image.
+### Edit profile and upload button
+We added a button to edit the user profile and upload the avatar image.
 ![EditProfileButton](/journal/assets/editprofilebutton1_w8.png "EditProfileButton")
+[EditProfileButton](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/c1d160038e3e1b47dd634964bbf7f4e7502713e5/frontend-react-js/src/components/EditProfileButton.js)
+![UploadButton](/journal/assets/uploadbutton1_w8.png "UploadButton")
 
 ## Implement Avatar Uploading
 We created a lambda function and an API Gateway to POST the uploaded avatar picture in the S3 Bucket who is processing the image.
@@ -41,7 +43,8 @@ We created a lambda function and an API Gateway to POST the uploaded avatar pict
 
 ## Fix CORS for API Gateway and Lambda Layers
 We added the CORS configuration in the S3 Bucket permissions. I had a lot of problems with CORS error. I was always getting undefined presignedurl, so the image was never uploading. After many hours of search and minor bug fixing, with the posted messages from F4dy and Beici Liang on the Discord channel, I validated every steps of the implementation and found out that I forgot to add the CLIENT_ID and USER_POOL_ID in the environment variables of the lambda function. I also found that I had a typo in the code from the Lambda function. I had *to-json* instead of *to_json*.
-
+![CORS](/journal/assets/CORS1_w8.png "CORS")
+[CORS](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/s3/cors.json)
 
 ## Render Avatar from CloudFront
 We created a separate js file for the avatar. This component is fetching the avatar image from the CloudFront distribution and is using the user uuid. So we added the user uuid in the CheckAuth.js file, in the ProfileInfo.js file and in the ProfileHeading.js file. We also added the user uuid in the SQL query of the shoe.sql file.
