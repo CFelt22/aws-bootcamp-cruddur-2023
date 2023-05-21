@@ -13,10 +13,11 @@ phases:
       - echo Build started on `date`
       - echo Building the Docker image...          
       - docker build -t backend-flask .
-      - "docker tag $REPO_NAME $IMAGE_URL/backend-flask/${CODEBUILD_RESOLVED_SOURCE_VERSION}-v${CODEBUILD_BUILD_NUMBER}"
+      - "docker tag $REPO_NAME $IMAGE_URL/$REPO_NAME"
   post_build:
     commands:
       - echo Build completed on `date`
+      - docker rmi -f $IMAGE_URL/$REPO_NAME:latest
       - echo Pushing the Docker image..
       - docker push $IMAGE_URL/$REPO_NAME
       - cd $CODEBUILD_SRC_DIR
