@@ -17,7 +17,6 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - docker rmi -f $IMAGE_URL/$REPO_NAME:latest
       - echo Pushing the Docker image..
       - docker push $IMAGE_URL/$REPO_NAME
       - cd $CODEBUILD_SRC_DIR
