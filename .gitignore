@@ -3,3 +3,5 @@ frontend-react-js/build/*
 *.env
 node_modules
 .DS_Store
+.aws-sam
+build.toml
