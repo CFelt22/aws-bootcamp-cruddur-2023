@@ -6,4 +6,4 @@ region = "ca-central-1"
 region = "ca-central-1"
 
 [default.deploy.parameters]
-region = "ca-central"
+region = "ca-central-1"
