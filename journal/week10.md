@@ -52,12 +52,10 @@ BuildSpec = 'backend-flask/buildspec.yml'
 [codebuild.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cicd/nested/codebuild.yaml)
 
 ### Frontend
-[template.yaml](
-[config.toml](
+[template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/frontend/template.yaml)  
+[config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/frontend/config.toml)
 
 ## Troubleshooting
-[template.yaml](
-[config.toml](
 
 ### Health-Check
 
