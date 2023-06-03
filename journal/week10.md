@@ -23,20 +23,41 @@ BuildSpec = 'backend-flask/buildspec.yml'
 
 ## Cloudformation templates
 ### Network
+[template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/networking/template.yaml)  
+[config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/networking/config.toml)
 
 ### Cluster
+[template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cluster/template.yaml)  
+[config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cluster/config.toml)
 
 ### Database
+[template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/db/template.yaml)  
+[config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/db/config.toml)
 
 ### Service - Backend
+[template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/template.yaml)  
+[task-definition.guard](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/task-definition.guard)  
+[ecs-cluster.guard](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/ecs-cluster.guard)
 
 ### DynamoDB
+[template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/ddb/template.yaml)  
+[config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/ddb/config.toml)  
+[build](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/ddb/build-1)  
+[package](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/ddb/package-2)  
+[deploy](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/ddb/deploy-3)
 
 ### CI/CD
+[template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cicd/template.yaml)
+[config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cicd/config.toml)
+[codebuild.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cicd/nested/codebuild.yaml)
 
 ### Frontend
+[template.yaml](
+[config.toml](
 
 ## Troubleshooting
+[template.yaml](
+[config.toml](
 
 ### Health-Check
 
