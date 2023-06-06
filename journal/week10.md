@@ -56,10 +56,16 @@ BuildSpec = 'backend-flask/buildspec.yml'
 [config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/frontend/config.toml)
 
 ## Troubleshooting
+This week I had some minors bugs, but nothing too complicated. Since I was trying to catch up, I used Andrews's code from next week and I was following along instead of trying to type everything. I had a small problem with the health-check of the backend container and I had some problems with CloudFront. 
 
 ### Health-Check
+The problem with the health-check was that it wasn't the right path in the backend-flask.json file. In my directory structure, I still have the */flask/* directory. Once I found this error, everything was working fine.
+![backend-flask.json](/journal/assets/backendflask1_w10.png "backend-flask.json")  
+[backend-flask.json](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/task-definitions/backend-flask.json)
 
 ### Certificates
+When I first created the certificate in the us-east-1 region, I didn't included the *cruddur.cfelteau.ca* dns. I only created it for *\*.cruddur.cfeltea.ca*. I had an error that the certificate was not valid for the hosted zone and that it couldn't be added to the CloudFront distribution. I had to create a new certificate and remove the old one from the other CloudFront Distribution. It was creating a conflict with the stack. Since I don't have a hosted zone for *cruddur.cfelteau.ca*, I added a value in the *.toml* file for my hosted zone. After that, everything worked.
+![toml](/journal/assets/tomlhosted1_w10.png "toml")
 
 ## Diagram
 We created a diagram of all the services deployed by the stacks and it shows how they interact with each others.
