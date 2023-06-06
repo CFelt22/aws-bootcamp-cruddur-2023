@@ -1,4 +1,4 @@
-import './ProfileForm.css';
+ import './ProfileForm.css';
 import React from "react";
 import process from 'process';
 import {getAccessToken} from 'lib/CheckAuth';
@@ -99,7 +99,7 @@ export default function ProfileForm(props) {
           display_name: displayName
         }),
       });
-      let data = await res.json();
+      //let data = await res.json();
       if (res.status === 200) {
         setBio(null)
         setDisplayName(null)
