@@ -22,24 +22,31 @@ BuildSpec = 'backend-flask/buildspec.yml'
 ```
 
 ## Cloudformation templates
+This section will explain briefly which resources the stack creates. I won't put pictures or code because some of the files are very long, but there is a link to every files used by the stacks.
+![Stacks](/journal/assets/stacks1_w10.png "Stacks")
+
 ### Network
+This stack is used to create the VPC, the Internet Gateway, 6 subnets (1 private and 1 public for each of the AZs), and route tables.
 [template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/networking/template.yaml)  
 [config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/networking/config.toml)
 
 ### Cluster
+This stack is used to create the ECS Fargate Cluster, the Application Load Balancer and it's Security Group, the HTTP and the HTTPS Listeners, and the target groups for the Frontend and the Backend. 
 [template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cluster/template.yaml)  
 [config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cluster/config.toml)
 
 ### Database
+This stack is used to create the RDS Instance, the Database Security Group and the Subnet Group. 
 [template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/db/template.yaml)  
 [config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/db/config.toml)
 
 ### Service - Backend
+This stack is used to create the Fargate Service, the Task definition, the Execution and the Task role.
 [template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/template.yaml)  
-[task-definition.guard](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/task-definition.guard)  
-[ecs-cluster.guard](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/ecs-cluster.guard)
+[config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/service/config.toml)
 
 ### DynamoDB
+This stack is used to create the DynamoDB table, the Stream, and the Execution role. We used SAM to create the stack, but before we used it, we had to build, package and deploy the code. 
 [template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/ddb/template.yaml)  
 [config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/ddb/config.toml)  
 [build](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/ddb/build-1)  
@@ -47,11 +54,13 @@ BuildSpec = 'backend-flask/buildspec.yml'
 [deploy](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/ddb/deploy-3)
 
 ### CI/CD
+This stack is used to create the CI/CD pipeline. It uses CodeBuild and CodePipeline and CodeStar to pull the code from the *prod* branch of our repo.
 [template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cicd/template.yaml)
 [config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cicd/config.toml)
 [codebuild.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/cicd/nested/codebuild.yaml)
 
 ### Frontend
+This stack is used to create the CloudFront distribution, the S3 Bucket for the *www.* domain, the S3 Bucket for the naked domain and the Bucket Policy. At this step, I had some problems with the Certificate. There is more explainations in the next section.
 [template.yaml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/frontend/template.yaml)  
 [config.toml](https://github.com/CFelt22/aws-bootcamp-cruddur-2023/blob/main/aws/cfn/frontend/config.toml)
 
@@ -68,5 +77,5 @@ When I first created the certificate in the us-east-1 region, I didn't included 
 ![toml](/journal/assets/tomlhosted1_w10.png "toml")
 
 ## Diagram
-We created a diagram of all the services deployed by the stacks and it shows how they interact with each others.
+We created a diagram of all the services deployed by the stacks and it shows how they interact with each others. This is the diagram created for the stacks that we built during this week. I used the trial of Lucid Chart to create it. I had free tier limitations.
 ![Diagram](/journal/assets/cfn1_w10.png "Diagram")
