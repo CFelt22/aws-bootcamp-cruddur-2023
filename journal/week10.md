@@ -63,3 +63,4 @@ BuildSpec = 'backend-flask/buildspec.yml'
 
 ## Diagram
 We created a diagram of all the services deployed by the stacks and it shows how they interact with each others.
+![Diagram](/journal/assets/cfn1_w10.png "Diagram")
