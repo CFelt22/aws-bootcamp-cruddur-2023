@@ -1,0 +1,10 @@
+[deploy]
+bucket = 'cfn-artifacts-cfelt'
+region = 'ca-central-1'
+stack_name = 'CrdFrontend'
+
+[parameters]
+CertificateArn = 'arn:aws:acm:us-east-1:657003664714:certificate/76d8bb08-747d-427b-930a-16378525bf2b'
+WwwBucketName = 'www.cruddur.cfelteau.ca'
+RootBucketName = 'cruddur.cfelteau.ca'
+HostedZone = 'cfelteau.ca'

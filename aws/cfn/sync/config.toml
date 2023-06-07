@@ -1,0 +1,9 @@
+[deploy]
+bucket = 'cfn-artifacts-cfelt'
+region = 'ca-central-1'
+stack_name = 'CrdSyncRole'
+
+[parameters]
+GitHubOrg = 'CFelt22'
+RepositoryName = 'aws-bootcamp-cruddur-2023'
+OIDCProviderArn = ''
