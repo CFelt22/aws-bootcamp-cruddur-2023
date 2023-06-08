@@ -2,11 +2,9 @@ import os
 import rollbar
 import rollbar.contrib.flask
 
-from flask import current_app as app
-from time import strftime
 from flask import got_request_exception
 
-def init_rollbar():
+def init_rollbar(app):
     rollbar_access_token = os.getenv('ROLLBAR_ACCESS_TOKEN')
     """init rollbar module"""
     rollbar.init(
