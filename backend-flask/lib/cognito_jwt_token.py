@@ -7,6 +7,7 @@ from jose.exceptions import JOSEError
 from jose.utils import base64url_decode
 from functools import wraps, partial
 from flask import request, g
+from flask import current_app as app
 
 class FlaskAWSCognitoError(Exception):
   pass
@@ -34,7 +35,6 @@ class CognitoJwtToken:
         else:
             self.request_client = request_client
         self._load_jwk_keys()
-
 
     def _load_jwk_keys(self):
         keys_url = f"https://cognito-idp.{self.region}.amazonaws.com/{self.user_pool_id}/.well-known/jwks.json"
