@@ -8,5 +8,5 @@ ServiceStack = 'CrdSrvBackendFlask'
 ClusterStack = 'CrdCluster'
 GitHubBranch = 'prod'
 GithubRepo = 'CFelt22/aws-bootcamp-cruddur-2023'
-ArtifactBucketName = "codepipeline-cruddur-artifacts"
+ArtifactBucketName = "cfn-artifacts-cfelt"
 BuildSpec = 'backend-flask/buildspec.yml'
