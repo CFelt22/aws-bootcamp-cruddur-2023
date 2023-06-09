@@ -4,7 +4,7 @@ import process from 'process';
 import { getAccessToken } from 'lib/CheckAuth';
 
 import ActivityContent  from '../components/ActivityContent';
-import FormErrors from '../components/FromErrors';
+import FormErrors from './FormErrors';
 
 export default function ReplyForm(props) {
   const [count, setCount] = React.useState(0);
@@ -18,13 +18,13 @@ export default function ReplyForm(props) {
   }
 
   const onsubmit = async (event) => {
-    console.log('replyActivity', props.replyActivity)
     event.preventDefault();
+    let res
     try {
       const backend_url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/${props.activity.uuid}/reply`
       await getAccessToken()
       const access_token = localStorage.getItem("access_token")
-      const res = await fetch(backend_url, {
+      res = await fetch(backend_url, {
         method: "POST",
         headers: {
           'Authorization': `Bearer ${access_token}`,
@@ -51,7 +51,8 @@ export default function ReplyForm(props) {
         setMessage('')
         props.setPopped(false)
       } else {
-        console.log(res)
+        setErrors(data)
+        console.log(res,data)
       }
     } catch (err) {
       setErrors(['generic_500'])
@@ -80,6 +81,9 @@ export default function ReplyForm(props) {
       <div className="popup_form_wrap reply_popup" onClick={close}>
         <div className="popup_form">
           <div className="popup_heading">
+            <div className="popup_title">
+              Reply to...
+            </div>
           </div>
           <div className="popup_content">
             <div className="activity_wrap">
