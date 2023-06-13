@@ -8,7 +8,7 @@ export default function ActivityFeed(props) {
       <span>Nothing to see here yet</span>
     </div>
   } else {
-    <div className='activity_feed_collection'>
+    content = <div className='activity_feed_collection'>
       {props.activities.map(activity => {
       return  <ActivityItem setReplyActivity={props.setReplyActivity} setPopped={props.setPopped} key={activity.uuid} activity={activity} />
       })}
