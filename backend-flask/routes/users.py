@@ -8,7 +8,7 @@ from lib.cognito_jwt_token import jwt_required
 from services.users_short import UsersShort
 from services.update_profile import UpdateProfile
 from services.user_activities import UserActivities
-from services.search_activities import ShowActivity
+from services.show_activity import ShowActivity
 
 def load(app):
   @app.route("/api/users/@<string:handle>/short", methods=['GET'])
