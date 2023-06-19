@@ -14,33 +14,32 @@ export default function MessageGroupPage() {
   const [otherUser, setOtherUser] = React.useState([]);
   const [messageGroups, setMessageGroups] = React.useState([]);
   const [messages, setMessages] = React.useState([]);
-  const [popped, setPopped] = React.useState([]);
   const [user, setUser] = React.useState(null);
   const dataFetchedRef = React.useRef(false);
-  const params = useParams();
-
-  const loadUserShortData = async () => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/api/users/@${params.handle}/short`
-    get(url,{
-      auth: true,
-      success: function(data){
-        console.log('other user:',data)
-        setOtherUser(data)
-      }
-    })
-  }
-
-  const loadMessageGroupsData = async () => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/api/message_groups`
-    get(url,{
-      auth: true,
-      success: function(data){
-        setMessageGroups(data)
-      }
-    })
-  };  
+  const params = useParams(); 
 
   React.useEffect(()=>{
+    const loadUserShortData = async () => {
+      const url = `${process.env.REACT_APP_BACKEND_URL}/api/users/@${params.handle}/short`
+      get(url,{
+        auth: true,
+        success: function(data){
+          console.log('other user:',data)
+          setOtherUser(data)
+        }
+      })
+    }
+  
+    const loadMessageGroupsData = async () => {
+      const url = `${process.env.REACT_APP_BACKEND_URL}/api/message_groups`
+      get(url,{
+        auth: true,
+        success: function(data){
+          setMessageGroups(data)
+        }
+      })
+    }; 
+
     //prevents double call
     if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
@@ -48,10 +47,10 @@ export default function MessageGroupPage() {
     loadMessageGroupsData();
     loadUserShortData();
     checkAuth(setUser);
-  }, [])
+  }, [params.handle])
   return (
     <article>
-      <DesktopNavigation user={user} active={'home'} setPopped={setPopped} />
+      <DesktopNavigation user={user} active={'home'} />
       <section className='message_groups'>
         <MessageGroupFeed otherUser={otherUser} message_groups={messageGroups} />
       </section>

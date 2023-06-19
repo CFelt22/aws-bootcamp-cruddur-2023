@@ -10,9 +10,9 @@ export default function TrendItem(props) {
   }
 
   return (
-    <a className="trending" href="#">
+    <button className="trending">
       <span className="hashtag">#{props.hashtag}</span>
       <span className="count">#{commify(props.count)} cruds</span>
-    </a>
+    </button>
   );
 }

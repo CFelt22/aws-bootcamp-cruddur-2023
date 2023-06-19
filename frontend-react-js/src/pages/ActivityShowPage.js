@@ -26,26 +26,26 @@ export default function ActivityShowPage() {
 	const goBack = () => {
 		navigate(-1);
 	}
-
-  const loadData = async () => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/@${params.handle}/status/${params.activity_uuid}`
-    get(url,{
-      auth: false,
-      success: function(data){
-        setActivity(data.activity)
-        setReplies(data.replies)
-      }
-    })
-  }
   
   React.useEffect(()=>{
+    const loadData = async () => {
+      const url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/@${params.handle}/status/${params.activity_uuid}`
+      get(url,{
+        auth: false,
+        success: function(data){
+          setActivity(data.activity)
+          setReplies(data.replies)
+        }
+      })
+    }
+
     //prevents double call
     if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
 
     loadData();
     checkAuth(setUser);
-  }, [])
+  }, [params.handle, params.activity_uuid])
 
   let el_activity
   if (activity !== null){
