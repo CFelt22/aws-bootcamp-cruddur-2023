@@ -1,33 +1,22 @@
+import React, { useState, useEffect, useCallback } from 'react';
 import './ProfileAvatar.css';
-import React from 'react';
+
+const defaultImage = 'https://assets.cruddur.cfelteau.ca/avatars/undefined.jpg';
 
 export default function ProfileAvatar(props) {
-  const [imageSrc, setImageSrc] = `https://assets.cruddur.cfelteau.ca/avatars/${props.id}.jpg`;
-  const fallbackSrc = `https://assets.cruddur.cfelteau.ca/avatars/undefined.jpg`;
-  const backgroundImage = `url("https://assets.cruddur.cfelteau.ca/avatars/${props.id}.jpg")`
-  const styles = {
-    backgroundImage: backgroundImage,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  };
+  const [imageSource, setImageSource] = useState(`https://assets.cruddur.cfelteau.ca/avatars/${props.id}.jpg`);
 
-  React.useEffect(()=>{
-    const checkImage = async () => {
-      try {
-        const response = await fetch(imageSrc);
-        if (response.status === 403) {
-          setImageSrc(fallbackSrc);
-        }
-      } catch (error) {
-        console.error('Error checking image:', error);
-        setImageSrc(fallbackSrc);
-      }
-    };
+  const handleImageError = useCallback(() => {
+    setImageSource(defaultImage);
+  }, []);
 
-    checkImage();
-  }, [imageSrc]);
+  useEffect(() => {
+    setImageSource(`https://assets.cruddur.cfelteau.ca/avatars/${props.id}.jpg`);
+  }, [props.id]);
 
   return (
-    <div className="profile-avatar" style={styles}></div>
+    <div className="profile-avatar">
+      <img src={imageSource} alt="Profile Avatar" onError={handleImageError} />
+    </div>
   );
 }
