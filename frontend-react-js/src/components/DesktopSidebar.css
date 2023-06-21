@@ -17,5 +17,5 @@ section footer a {
 }
 
 section footer a:hover {
-  color: rgba(var(--white);
+  color: rgba(var(--white));
 }

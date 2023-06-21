@@ -6,7 +6,7 @@
   }
   
   .back:hover {
-    color: rgba(var(--white)
+    color: rgba(var(--white));
   }
   
   .activity_feed_heading.flex {
