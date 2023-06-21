@@ -1,7 +1,12 @@
 :root {
-  --purple: rgba(78,22,149,1);
-  --purple_text: rgba(178,70,255,1);
-  --dark: rgba(78,85,105,1);
+  --purple: #39008E;
+  --purple_bright: #B246FF;
+  --dark: #211925;
+  --white: #FFF6FF;
+  --grey: #B2A7B8;
+  --blue_light: #E7F2FB;
+  --red: #F62700;
+  --purple_light: #A187B0;
 }
 
 * { box-sizing: border-box; }

@@ -22,7 +22,7 @@
 }
 
 .profile-info .profile-avatar{
-  background: rgb(149,0,255);
+  background: var(--purple_bright);
   height: 40px;
   width: 40px;
   border-radius: 999px;
@@ -43,13 +43,13 @@
 }
 
 .profile-info .profile-username {
-  color: rgb(255,255,255,0.5);
+  color: rgba(var(--white),0.5);
   font-size: 14px;
 }
 
 
 .profile-info .icon {
-  fill: rgb(255,255,255,0.5);
+  fill: rgba(var(--white),0.5);
   width: 18px;
   height: 18px;
   margin-right: 8px
@@ -57,7 +57,7 @@
 
 .profile-dialog {
   background: #000;
-  box-shadow: 0px 0px 4px rgba(255,255,255,0.6);
+  box-shadow: 0px 0px 4px rgba(var(--white),0.6);
   border-radius: 8px;
   min-height: 60px;
   z-index: 3;
@@ -81,5 +81,5 @@
   outline: none;
 }
 .profile-dialog button:hover {
-  background: rgba(255,255,255,0.1)
+  background: rgba(var(--white),0.1)
 }
