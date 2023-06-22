@@ -1,12 +1,13 @@
 :root {
   --purple: #4e1695;
   --purple_bright: #B246FF;
-  --dark: #211925;
+  --purple_light: #A187B0;
+  --purple_dark: #060009;
+  --dark: #4D4352;
   --white: #FFF6FF;
   --grey: #B2A7B8;
   --blue_light: #E7F2FB;
   --red: #F62700;
-  --purple_light: #A187B0;
 }
 
 * { box-sizing: border-box; }

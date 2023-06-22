@@ -10,15 +10,15 @@
 }
 
 .activity_item.clickable:hover {
-  background: rgba(255,255,255,0.15);
+  background: rgba(255,246,255,0.15);
 }
 
 .replies {
   padding-left: 24px;
-  background: rgba(255,255,255,0.15);
+  background: green;
 }
 .replies .activity_item{
-  background: var(--fg);
+  background: green;
 }
 
 .acitivty_main {
@@ -47,24 +47,19 @@
 }
 
 .activity_item .activity_actions .action .counter{
-  color: rgba(var(--white),0.8);
+  color: green;
   font-weight: 800;
 }
 
 .activity_item .activity_actions .icon{
   height: 18px;
   width: 18px;
-  fill: #fff;
-}
-
-.activity_item .activity_actions .action:hover {
-  background: rgba(var(--purple_bright),0.2);
+  fill: var(--white);
 }
 
 .activity_item .activity_actions .action:hover .icon {
   fill: var(--purple_bright);
 }
-
 
 .activity_item.expanded .activity_content {
   display: flex;

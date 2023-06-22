@@ -40,14 +40,14 @@
 
 .activity_content .activity_identity .display_name {
   font-weight: 800;
-  color: #fff;
+  color: var(--purple_bright);
 }
 .activity_content .activity_identity .display_name:hover {
   text-decoration: underline;
 }
 
 .activity_content  .activity_identity .handle {
-  color: rgba(var(--white),0.5);
+  color: var(--purple_light);
 }
 
 .activity_content .activity_times {
@@ -57,7 +57,7 @@
 }
 
 .activity_content .activity_times .created_at {
-  color: var(--dark);
+  color: var(--grey);
   font-size: 14px;
 }
 
@@ -74,7 +74,7 @@
 }
 
 .activity_content .message {
-  color: #fff;
+  color: var(--white);
   font-size: 16px;
   margin-top: 8px;
 }
