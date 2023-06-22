@@ -43,8 +43,8 @@ nav a.primary.active svg {
 
 nav button.post {
   display: block;
-  background: var(--purple_bright);
-  color: var(--white);
+  background: var(--white);
+  color: var(--purple_dark);
   border: none;
   text-decoration: none;
   border-radius: 999px;
@@ -57,6 +57,6 @@ nav button.post {
 }
 
 nav button.post:hover {
-  color: var(--purple);
-  background-color: var(--white);
+  color: var(--white);
+  background-color: var(--purple_bright);
 }

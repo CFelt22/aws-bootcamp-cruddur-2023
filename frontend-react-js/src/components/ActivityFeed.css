@@ -9,7 +9,7 @@
   font-size: 20px;
   text-align: center;
   padding: 24px;
-  color: rgba(var(--white),0.3);
+  color: var(--grey);
 }
 .activity_feed_collection {
   display: flex;
@@ -19,11 +19,11 @@
 .activity_feed_heading {
   padding: 16px;
   padding-bottom: 48px;
-  border-bottom: solid 1px var(--dark);
+  border-bottom: solid 1px var(--purple)
 }
 
 .activity_feed_heading .title{
-  color: #fff;
+  color: var(--white);
   font-weight: 800;
   font-size: 20px;
 }

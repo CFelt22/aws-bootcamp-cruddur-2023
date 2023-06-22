@@ -15,10 +15,10 @@
 
 .replies {
   padding-left: 24px;
-  background: green;
+  background: var(--white);
 }
 .replies .activity_item{
-  background: green;
+  background: var(--white);
 }
 
 .acitivty_main {
@@ -47,7 +47,7 @@
 }
 
 .activity_item .activity_actions .action .counter{
-  color: green;
+  color: var(--white);
   font-weight: 800;
 }
 
