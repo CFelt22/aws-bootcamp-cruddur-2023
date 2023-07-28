@@ -10,7 +10,7 @@
 }
 
 .activity_content_wrap .activity_avatar {
-  background: rgb(149,0,255);
+  background: var(--purple_bright);
   height: 60px;
   width: 60px;
   border-radius: 999px;
@@ -40,14 +40,14 @@
 
 .activity_content .activity_identity .display_name {
   font-weight: 800;
-  color: #fff;
+  color: var(--purple_bright);
 }
 .activity_content .activity_identity .display_name:hover {
   text-decoration: underline;
 }
 
 .activity_content  .activity_identity .handle {
-  color: rgb(255,255,255,0.5);
+  color: var(--purple_light);
 }
 
 .activity_content .activity_times {
@@ -57,24 +57,24 @@
 }
 
 .activity_content .activity_times .created_at {
-  color: rgb(72,77,95);
+  color: var(--grey);
   font-size: 14px;
 }
 
 .activity_content .activity_times .expires_at {
-  color: rgb(149,0,255);
+  color: var(--purple_bright);
   font-size: 14px;
   display: flex;
   gap: 2px;
 }
 .activity_content .activity_times .expires_at svg.icon {
-  fill: rgb(149,0,255);
+  fill: var(--purple_bright);
   width: 14px;
   height: 14px;
 }
 
 .activity_content .message {
-  color: #fff;
+  color: var(--white);
   font-size: 16px;
   margin-top: 8px;
 }

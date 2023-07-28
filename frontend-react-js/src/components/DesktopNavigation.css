@@ -7,44 +7,44 @@ nav {
 nav .logo {
   width: 48px;
   height: 48px;
-  fill: rgb(149,0,255);
+  fill: var(--purple_bright);
 }
 
 nav a.primary {
   display: flex;
   gap: 24px;
   align-items: center;
-  color: rgb(255,255,255,0.5);
+  color: var(--grey);
   font-size: 20px;
   text-decoration: none;
   padding: 12px 0;
   margin: 8px 0;
 }
 nav a.primary:hover {
-  color: rgb(255,255,255,1);
+  color: var(--white);
 }
 nav a.primary .icon {
-  fill: rgb(255,255,255,0.5);
+  fill: var(--grey);
   width: 24px;
   height: 24px;
 }
 
 nav a.primary:hover .icon {
-  fill: rgb(255,255,255,1);
+  fill: var(--white);
 }
 
 nav a.primary.active {
-  color: var(--purple_text) !important;
+  color: var(--purple_bright) !important;
   font-weight: 600;
 }
 nav a.primary.active svg {
-  fill: var(--purple_text) !important;
+  fill: var(--purple_bright) !important;
 }
 
 nav button.post {
   display: block;
-  background: var(--purple_text);
-  color: #fff;
+  background: var(--white);
+  color: var(--purple_dark);
   border: none;
   text-decoration: none;
   border-radius: 999px;
@@ -54,4 +54,9 @@ nav button.post {
   font-weight: 600;
   text-align: center;
   margin-top: 24px;
+}
+
+nav button.post:hover {
+  color: var(--white);
+  background-color: var(--purple_bright);
 }

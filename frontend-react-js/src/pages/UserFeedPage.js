@@ -22,26 +22,27 @@ export default function UserFeedPage() {
 
   const params = useParams();
 
-  const loadData = async () => {
-    const url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/@${params.handle}`
-    get(url,{
-      auth: false,
-      success: function(data){
-        console.log('setprofile',data.profile)
-        setProfile(data.profile)
-        setActivities(data.activities)
-      }
-    })
-  }
-
-  React.useEffect(()=>{
-    //prevents double call
+  React.useEffect(() => {
+    const loadData = async () => {
+      const url = `${process.env.REACT_APP_BACKEND_URL}/api/activities/@${params.handle}`;
+      get(url, {
+        auth: false,
+        success: function(data) {
+          console.log('setprofile',data.profile);
+          setProfile(data.profile);
+          setActivities(data.activities);
+        }
+      });
+    };
+  
+    // prevents double call
     if (dataFetchedRef.current) return;
     dataFetchedRef.current = true;
-
+  
     loadData();
     checkAuth(setUser);
-  }, [])
+  }, [params.handle]);
+  
 
   return (
     <article>

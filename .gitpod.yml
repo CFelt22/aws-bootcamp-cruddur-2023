@@ -20,6 +20,8 @@ tasks:
       curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
       unzip awscliv2.zip
       sudo ./aws/install
+      gem install aws_s3_website_sync
+      gem install dotenv
     init: 
       cd 'aws-bootcamp-cruddur-2023/aws/lambdas/cruddur-upload-avatar/' ; bundle install
     command:
