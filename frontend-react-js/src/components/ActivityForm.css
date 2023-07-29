@@ -50,7 +50,7 @@ form.activity_form button[type='submit'] {
 }
 
 form.activity_form .count {
-  color: rgba(var(--white),0.3)
+  color: rgba(255,246,255,0.3)
 }
 
 form.activity_form .count.err {

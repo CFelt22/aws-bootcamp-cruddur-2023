@@ -29,7 +29,7 @@ form.profile_form .field.display_name {
 }
 
 form.profile_form label {
-  color: rgba(var(--white),0.8);
+  color: rgba(255,246,255,0.8);
   padding-bottom: 4px;
   display: block;
 }

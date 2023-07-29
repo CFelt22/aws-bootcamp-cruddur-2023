@@ -27,7 +27,7 @@
 
 .suggested_users .user span.handle {
   font-size: 13px;
-  color: rgba(var(--white),0.5)
+  color: rgba(255,246,255,0.5)
 }
 
 .suggested_users .avatar {

@@ -50,7 +50,7 @@ background: rgba(255,255,255,0.08)
 }
 
 .message_item  .message_identity .handle {
-  color: rgba(var(--white),0.5);
+  color: rgba(255,246,255,0.5);
 }
 
 

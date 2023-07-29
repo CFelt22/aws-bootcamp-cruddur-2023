@@ -29,7 +29,7 @@ article.recover-article form {
 article.recover-article label {
   padding: 4px 0px;
   display: block;
-  color: rgba(var(--white),0.6);
+  color: rgba(255,246,255,0.6);
 }
 
 article.recover-article input[type='text'],
