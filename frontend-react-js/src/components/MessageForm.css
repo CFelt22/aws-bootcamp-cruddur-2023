@@ -48,7 +48,7 @@ form.message_form button[type='submit'] {
 }
 
 form.message_form .count {
-  color: rgba(var(--white),0.3)
+  color: rgba(255,246,255,0.3)
 }
 
 form.message_form .count.err {

@@ -10,7 +10,7 @@
     justify-content: flex-start;
     align-items: center;
     padding-top: 48px;
-    background: rgba(var(--white),0.1)
+    background: rgba(255,246,255,0.1)
   }
   
   .popup_form {
@@ -23,7 +23,7 @@
   .popup_form .popup_heading {
     display: flex;
     flex-direction: row;
-    border-bottom: solid 1px rgba(var(--white),0.4);
+    border-bottom: solid 1px rgba(255,246,255,0.4);
     padding: 16px;
   }
   

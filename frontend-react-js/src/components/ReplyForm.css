@@ -54,7 +54,7 @@ form.replies_form button[type='submit'] {
 }
 
 form.replies_form .count {
-  color: rgba(var(--white),0.3)
+  color: rgba(255,246,255,0.3)
 }
 
 form.replies_form .count.err {
