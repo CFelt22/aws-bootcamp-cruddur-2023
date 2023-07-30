@@ -1,11 +1,13 @@
 #! /usr/bin/env bash
 set -e # stop the execution of the script if it fails
 
-CFN_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/sync/template.yaml"
-CONFIG_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/sync/config.toml"
+#CFN_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/sync/template.yaml"
+CFN_PATH="/Users/charlesfelteau/aws-bootcamp-cruddur-2023/aws/cfn/sync/template.yaml"
+#CONFIG_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/sync/config.toml"
+CONFIG_PATH="/Users/charlesfelteau/aws-bootcamp-cruddur-2023/aws/cfn/sync/config.toml"
 echo $CFN_PATH
 
-cfn-lint $CFN_PATH
+#cfn-lint $CFN_PATH
 
 BUCKET=$(cfn-toml key deploy.bucket -t $CONFIG_PATH)
 REGION=$(cfn-toml key deploy.region -t $CONFIG_PATH)
