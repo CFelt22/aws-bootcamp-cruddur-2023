@@ -78,7 +78,7 @@ Resources:
   FargateCluster:
     Type: AWS::ECS::Cluster
     Properties:
-      ClusterName: !Sub "${AWS::StackName}Fargate"
+      ClusterName: !Sub "${AWS::StackName}FargateCluster"
       CapacityProviders:
           - FARGATE
       ClusterSettings:

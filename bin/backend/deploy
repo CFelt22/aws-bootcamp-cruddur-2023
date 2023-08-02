@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-CLUSTER_NAME="CrdClusterFargate"
+CLUSTER_NAME="CrdClusterFargateCluster"
 SERVICE_NAME="backend-flask"
 TASK_DEFINITION_FAMILY="backend-flask" \
 
@@ -13,7 +13,7 @@ aws ecs update-service \
 --cluster $CLUSTER_NAME \
 --service $SERVICE_NAME \
 --task-definition $LATEST_TASK_DEFINITION_ARN \
---force-new-deployment \
+--force-new-deployment
 
 #aws ecs describe-services \
 #--cluster $CLUSTER_NAME \

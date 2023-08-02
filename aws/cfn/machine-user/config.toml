@@ -1,4 +1,4 @@
 [deploy]
 bucket = 'cfn-artifacts-cfelt'
 region = 'ca-central-1'
-stack_name = 'CrdMachinueUser'
+stack_name = 'CrdMachineUser'

@@ -1,10 +1,10 @@
 #! /usr/bin/env bash
 set -e # stop the execution of the script if it fails
 
-CFN_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/machine-user/template.yaml"
-#CFN_PATH="/Users/charlesfelteau/aws-bootcamp-cruddur-2023/aws/cfn/cicd/template.yaml"
-CONFIG_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/machine-user/config.toml"
-#CONFIG_PATH="/Users/charlesfelteau/aws-bootcamp-cruddur-2023/aws/cfn/cicd/config.toml"
+#CFN_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/machine-user/template.yaml"
+CFN_PATH="/Users/charlesfelteau/aws-bootcamp-cruddur-2023/aws/cfn/machine-user/template.yaml"
+#CONFIG_PATH="/workspace/aws-bootcamp-cruddur-2023/aws/cfn/machine-user/config.toml"
+CONFIG_PATH="/Users/charlesfelteau/aws-bootcamp-cruddur-2023/aws/cfn/machine-user/config.toml"
 echo $CFN_PATH
 
 cfn-lint $CFN_PATH
